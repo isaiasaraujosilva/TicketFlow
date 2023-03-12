@@ -31,6 +31,6 @@ class SessionSerializador(serializers.ModelSerializer):
 class TicketSerializador(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = ['session_id','people_id','seat_id'] 
+        fields = ['id','session_id','people_id','seat_id'] 
 
 
