@@ -2,7 +2,7 @@
 
 # Sobre
 
-    Sistema para controle de venda de ingressos
+    Api para implementação de um sistema decontrole de venda de ingressos para eventos
 
 ## Como instalar:
 
