@@ -6,7 +6,9 @@ from rest_framework.filters import SearchFilter
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.views import APIView
+
 
 # Create your views here.
 class PeopleViewSet(viewsets.ModelViewSet):
@@ -33,3 +35,18 @@ class SessionViewSet(viewsets.ModelViewSet):
 class TickectViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializador
+
+    def delete(self, request, id=None):
+        ticket = Ticket.objects.get(id=id)
+        ticket.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+# # class MyView(APIView):
+# #     def delete(self, request, pk):
+# #         # logic for deleting the resource identified by pk
+# #         try:
+# #             obj = MyModel.objects.get(pk=pk)
+# #             obj.delete()
+# #             return Response(status=status.HTTP_204_NO_CONTENT)
+# #         except MyModel.DoesNotExist:
+# #             return Response(status=status.HTTP_404_NOT_FOUND)

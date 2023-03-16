@@ -43,8 +43,7 @@ class Session(models.Model):
 
     def __str__(self):
         return self.imdb_id
-
-
+    
 class Seat (models.Model):
     row = models.CharField(max_length=10)
     number = models.IntegerField()

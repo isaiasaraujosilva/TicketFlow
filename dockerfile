@@ -7,7 +7,7 @@ RUN apt-get update \
 		postgresql-client \
 	&& rm -rf /var/lib/apt/lists/*
 
-WORKDIR /code
+WORKDIR ./code
 
 COPY requirements.txt .
 
