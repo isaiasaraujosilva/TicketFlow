@@ -15,38 +15,88 @@ class PeopleViewSet(viewsets.ModelViewSet):
     queryset = People.objects.all()
     serializer_class = PeopleSerializador
 
+    def delete(self, request, id=None):
+        try:
+        
+            people = people.objects.get(id=id)
+            people.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except people.DoesNotExist:
+
+            return Response(status = status.HTTP_404_NOT_FOUND)
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializador
 
+    def delete(self, request, id=None):
+        try:
+        
+            user = User.objects.get(id=id)
+            user.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except user.DoesNotExist:
+
+            return Response(status = status.HTTP_404_NOT_FOUND)
+        
 class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializador
 
+    def delete(self, request, id=None):
+        try:
+        
+            room = Room.objects.get(id=id)
+            room.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except room.DoesNotExist:
+
+            return Response(status = status.HTTP_404_NOT_FOUND)
+    
 class SeatViewSet(viewsets.ModelViewSet):
     queryset = Seat.objects.all()
     serializer_class = SeatSerializador
 
+    def delete(self, request, id=None):
+        try:
+        
+            seat = Seat.objects.get(id=id)
+            seat.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except seat.DoesNotExist:
+
+            return Response(status = status.HTTP_404_NOT_FOUND)
+
 class SessionViewSet(viewsets.ModelViewSet):
     queryset = Session.objects.all()
     serializer_class = SessionSerializador
+    
+    def delete(self, request, id=None):
+        try:
+        
+            session = Session.objects.get(id=id)
+            session.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except session.DoesNotExist:
 
+            return Response(status = status.HTTP_404_NOT_FOUND)
 
 class TickectViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializador
 
     def delete(self, request, id=None):
-        ticket = Ticket.objects.get(id=id)
-        ticket.delete()
+        try:
+        
+            ticket = Ticket.objects.get(id=id)
+            ticket.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except ticket.DoesNotExist:
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
-# # class MyView(APIView):
-# #     def delete(self, request, pk):
-# #         # logic for deleting the resource identified by pk
-# #         try:
-# #             obj = MyModel.objects.get(pk=pk)
-# #             obj.delete()
-# #             return Response(status=status.HTTP_204_NO_CONTENT)
-# #         except MyModel.DoesNotExist:
-# #             return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response(status = status.HTTP_404_NOT_FOUND)
