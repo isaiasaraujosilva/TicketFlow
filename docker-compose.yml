@@ -11,7 +11,7 @@ services:
     volumes:
       - '.:/code'
 
-  databases:
+  database:
     image: postgres:latest
     restart: unless-stopped
     volumes:
