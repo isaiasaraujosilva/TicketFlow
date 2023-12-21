@@ -5,7 +5,20 @@ services:
     container_name: ticket-django
     image: django-docker:0.0.1
     build: .
+    restart: unless-stopped
     ports:
       - "8000:8000"
     volumes:
       - '.:/code'
+
+  database:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ticket-flow
+    ports:
+      - 5432:5432
